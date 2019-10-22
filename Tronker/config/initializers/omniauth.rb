@@ -6,5 +6,5 @@ end
 OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :google_oauth2, '477621880937-8v1hf90lutqcc9tq0hjip0gk3p1vht74.apps.googleusercontent.com', 'my Google client secret', {client_options: {ssl: {ca_file:        Rails.root.join("cacert.pem").to_s}}}
+  provider :google_oauth2, '477621880937-8v1hf90lutqcc9tq0hjip0gk3p1vht74.apps.googleusercontent.com', '-o7phbz52d9X27ghf4iG4sQh', {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
 end    
