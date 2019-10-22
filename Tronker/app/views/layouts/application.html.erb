@@ -1,16 +1,15 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Tronker</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"%>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
   <body>
   	<% if flash[:notice] %>
   		<div class="notification is-primary global-notification">
@@ -48,16 +47,11 @@
               <p>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-info" %>
               </p>
-			  <% unless current_user %> 
-  			<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-			<% else %>
- 			 <%= current_user[:name] %>
-  			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-			<% end %>
             <% else %>
             <p class="control">
               <%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
             </p>
+			<p><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class:"button is-info" %></p>
 						<p class="control">
               <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>
             </p>
@@ -71,4 +65,3 @@
     <%= yield %>
   </body>
 </html>
-
