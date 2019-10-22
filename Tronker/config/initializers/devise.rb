@@ -58,7 +58,8 @@ Devise.setup do |config|
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
   config.strip_whitespace_keys = [:email]
-
+  config.omniauth :facebook, "444364956186741", "a0d56a84ae387326ae81032dbfe34d7b", 
+  callback_url: "http://localhost:3000/users/auth/facebook/callback"
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
   # given strategies, for example, `config.params_authenticatable = [:database]` will

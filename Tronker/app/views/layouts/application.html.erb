@@ -48,6 +48,12 @@
               <p>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-info" %>
               </p>
+			  <% unless current_user %> 
+  			<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+			<% else %>
+ 			 <%= current_user[:name] %>
+  			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+			<% end %>
             <% else %>
             <p class="control">
               <%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
