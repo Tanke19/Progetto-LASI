@@ -43,32 +43,15 @@
 		<div class="field">
 			<div class="control">
 		 		<%= f.button :submit, "Sign up", class:"button is-info is-medium" %>
-		</div>
-						<script>
-				window.fbAsyncInit = function() {
-					FB.init({
-					appId      : '444364956186741',
-					xfbml      : true,
-					version    : 'v4.0'
-					});
-					FB.AppEvents.logPageView();
-				};
+				  <div>
+      <% if current_user %>
+        Signed in as <strong><%= current_user.name %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+      <% end %>
+    </div>
 
-				(function(d, s, id){
-					var js, fjs = d.getElementsByTagName(s)[0];
-					if (d.getElementById(id)) {return;}
-					js = d.createElement(s); js.id = id;
-					js.src = "https://connect.facebook.net/en_US/sdk.js";
-					fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));
-				</script>
-				<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
-		<div id="fb-root"></div>
 		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v4.0&appId=2995170044040997&autoLogAppEvents=1"></script>
 		<% end %>
 			<br />
